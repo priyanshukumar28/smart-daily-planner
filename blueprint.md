@@ -37,3 +37,15 @@ This document outlines the plan for creating a modern, mobile-friendly Daily Pla
     -   Ensure completed tasks are visually distinct.
 6.  **Styling and Responsiveness:** Apply styles to all components and ensure the layout is responsive.
 7.  **Final Review:** Perform a final review of the application to ensure all features are working as expected and the design is polished.
+
+## Change Log
+
+### Bug Fix: "Today's Focus" Not Displaying Tasks
+*   **Issue:** The "Today's Focus" section was not displaying any tasks, even when tasks were present in the main list.
+*   **Cause:** The filtering logic was incorrectly looking for a `dueDate` property on task objects, but this property was not being set when a task was created.
+*   **Resolution:** The filtering logic in `Dashboard.jsx` was updated to use the task's `id` (which is a timestamp) to check if the task was created on the current day. This ensures newly created tasks appear correctly.
+
+### Layout Refinement: Consistent Box Sizing
+*   **Issue:** The "My Tasks" and "Today's Focus" sections had inconsistent widths and heights on different screen sizes, leading to a misaligned and unprofessional appearance.
+*   **Cause:** The initial layout using the Material-UI `Grid` component had complex and conflicting flexbox behaviors that were difficult to override, preventing the desired alignment.
+*   **Resolution:** The layout was refactored in `Dashboard.jsx`. The `Grid` component was replaced with Material-UI's `Box` component, and a direct `flexbox` implementation was used. This provides explicit control over the layout, ensuring that the two boxes have equal height on desktop views and equal width on mobile views for a clean, symmetrical, and fully responsive design.

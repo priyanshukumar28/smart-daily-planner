@@ -15,26 +15,26 @@ const AddTaskForm = ({ addTask }) => {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
       <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <TextField
-            label="Task Title"
+            label="What needs to be done?"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             fullWidth
             required
-            variant="outlined"
+            variant="filled"
           />
         </Grid>
-        <Grid item xs={6} sm={2}>
+        <Grid item xs={12} sm={6}>
           <TextField
             select
             label="Category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             fullWidth
-            variant="outlined"
+            variant="filled"
           >
             <MenuItem value="Work">Work</MenuItem>
             <MenuItem value="Study">Study</MenuItem>
@@ -42,21 +42,21 @@ const AddTaskForm = ({ addTask }) => {
             <MenuItem value="Personal">Personal</MenuItem>
           </TextField>
         </Grid>
-        <Grid item xs={6} sm={2}>
+        <Grid item xs={12} sm={6}>
           <TextField
             select
             label="Priority"
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
             fullWidth
-            variant="outlined"
+            variant="filled"
           >
             <MenuItem value="Low">Low</MenuItem>
             <MenuItem value="Medium">Medium</MenuItem>
             <MenuItem value="High">High</MenuItem>
           </TextField>
         </Grid>
-        <Grid item xs={12} sm={2}>
+        <Grid item xs={12}>
           <Button type="submit" variant="contained" color="primary" size="large" fullWidth sx={{ height: '56px' }}>
             Add Task
           </Button>

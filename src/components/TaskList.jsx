@@ -1,19 +1,21 @@
 
-import { List } from '@mui/material';
+import React from 'react';
+import { Grid } from '@mui/material';
 import TaskCard from './TaskCard';
 
 const TaskList = ({ tasks, toggleComplete, deleteTask }) => {
   return (
-    <List sx={{ width: '100%' }}>
+    <Grid container spacing={{ xs: 2, md: 3 }}>
       {tasks.map((task) => (
-        <TaskCard
-          key={task.id}
-          task={task}
-          toggleComplete={toggleComplete}
-          deleteTask={deleteTask}
-        />
+        <Grid item xs={12} key={task.id}>
+          <TaskCard
+            task={task}
+            toggleComplete={toggleComplete}
+            deleteTask={deleteTask}
+          />
+        </Grid>
       ))}
-    </List>
+    </Grid>
   );
 };
 
